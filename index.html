@@ -19,26 +19,18 @@
             min-height: 100vh;
         }
 
-        .header {
-            text-align: center;
-            padding: 50px 20px 20px;
-        }
+        .header { text-align: center; padding: 40px 20px; }
+        .header h1 { color: #2ecc71; margin: 0; font-size: 2.5rem; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
 
-        .header h1 {
-            color: #2ecc71;
-            font-size: 2.8rem;
-            margin: 0;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-
-        /* ส่วนเลือกเวอร์ชัน */
+        /* ระบบ Tab */
         .tab-container {
             display: flex;
             background: #1e293b;
-            padding: 8px;
+            padding: 5px;
             border-radius: 50px;
-            margin: 30px 0;
+            margin: 20px 0;
             border: 1px solid #334155;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .tab-btn {
@@ -58,35 +50,28 @@
             color: #000;
         }
 
-        /* ส่วนเนื้อหา */
         .content-container {
             width: 90%;
-            max-width: 700px;
-            background: #1e293b;
-            padding: 30px;
+            max-width: 650px;
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 25px;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             margin-bottom: 50px;
         }
 
-        .section {
-            display: none;
-            animation: fadeIn 0.4s ease;
-        }
+        .section { display: none; }
+        .section.active { display: block; animation: fadeIn 0.3s ease-out; }
 
-        .section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         .instruction-img {
             width: 100%;
+            display: block;
             border-radius: 12px;
-            border: 2px solid #334155;
+            border: 2px solid #2ecc71;
             margin: 20px 0;
         }
 
@@ -94,68 +79,120 @@
             background: #0f172a;
             padding: 20px;
             border-radius: 12px;
-            border-left: 5px solid #2ecc71;
             text-align: center;
+            border: 1px solid #2ecc71;
             margin-top: 10px;
         }
 
-        .ip-text {
-            font-family: monospace;
-            font-size: 1.3rem;
-            color: #2ecc71;
-        }
+        .ip-text { font-family: monospace; color: #2ecc71; font-size: 1.3rem; font-weight: bold; }
 
         .copy-btn {
             background: #2ecc71;
             color: #000;
             border: none;
-            padding: 10px 25px;
+            padding: 12px 25px;
             border-radius: 8px;
             font-weight: bold;
-            margin-top: 15px;
             cursor: pointer;
+            margin-top: 15px;
             transition: 0.2s;
+            font-family: 'Kanit', sans-serif;
         }
 
-        .copy-btn:hover { background: #27ae60; }
+        .copy-btn:hover { background: #27ae60; transform: scale(1.05); }
 
-        /* แก้ปัญหา Bedrock */
-        .troubleshoot {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #334155;
-        }
+        .troubleshoot { margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; }
+        .troubleshoot h2 { color: #f1c40f; font-size: 1.4rem; text-align: center; }
+        .hint { display: block; text-align: center; color: #94a3b8; margin: 15px 0; }
 
-        .troubleshoot h2 { color: #f1c40f; text-align: center; }
-        .hint-text { color: #94a3b8; display: block; text-align: center; margin-top: 20px; }
-
-        .footer { padding-bottom: 30px; color: #64748b; }
+        .footer { padding-bottom: 30px; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <div class="header">
         <h1>🎮 KRJNP WORLD</h1>
-        <p>วิธีการเข้าเล่นเซิร์ฟเวอร์</p>
+        <p>ยินดีต้อนรับเข้าสู่เซิร์ฟเวอร์ของเรา</p>
     </div>
 
     <div class="tab-container">
-        <button class="tab-btn active" onclick="showTab('java')">Java Edition</button>
-        <button class="tab-btn" onclick="showTab('bedrock')">Bedrock Edition</button>
+        <button id="btn-java" class="tab-btn active" onclick="showTab('java')">Java Edition</button>
+        <button id="btn-bedrock" class="tab-btn" onclick="showTab('bedrock')">Bedrock Edition</button>
     </div>
 
     <div class="content-container">
         
         <div id="java" class="section active">
-            <h3 style="text-align:center;">วิธีเข้าสำหรับเวอร์ชัน Java</h3>
-            <img src="https://i.ibb.co/R4T8CsZz/image_ec453c.jpg" class="instruction-img">
+            <h3 style="text-align:center;">วิธีเข้าเล่นเวอร์ชัน Java (PC)</h3>
+            <img src="image_ec453c.jpg" class="instruction-img" alt="Java Guide">
             
             <div class="ip-box">
-                <p>IP SERVER (Java):</p>
-                <span class="ip-text" id="java-ip">winnings-passage.gl.joinmc.link</span><br>
-                <button class="copy-btn" onclick="copyIP('java-ip')">📋 คัดลอก IP</button>
+                <p style="margin-top:0;">Server IP:</p>
+                <span id="java-ip" class="ip-text">winnings-passage.gl.joinmc.link</span><br>
+                <button class="copy-btn" onclick="copyIP('java-ip')">📋 คัดลอก IP Java</button>
             </div>
         </div>
 
         <div id="bedrock" class="section">
-            <h3 style="text-align
+            <h3 style="text-align:center;">วิธีเข้าเล่นเวอร์ชัน Bedrock (มือถือ/คอนโซล)</h3>
+            <img src="image_eb4a93.png" class="instruction-img" alt="Bedrock Guide">
+            
+            <div class="ip-box">
+                <p style="margin:0;">Address: <span id="bed-ip" class="ip-text">147.185.221.30</span></p>
+                <p style="margin:5px 0 0 0;">Port: <span class="ip-text">61448</span></p>
+                <button class="copy-btn" onclick="copyIP('bed-ip')">📋 คัดลอก IP Bedrock</button>
+            </div>
+
+            <div class="troubleshoot">
+                <h2>❓ ทำไมเข้าไม่ได้? (Bedrock)</h2>
+                <span class="hint">ขั้นตอนที่ 1: ให้เปิดการตั้งค่าตามภาพนี้</span>
+                <img src="image_eb4354.png" class="instruction-img">
+                
+                <span class="hint">ขั้นตอนที่ 2: ถ้ายังเข้าไม่ได้ ให้ปิด Trusted Skins</span>
+                <img src="image_eaf09a.png" class="instruction-img">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">© 2026 KRJNP Official Hub - All Rights Reserved</div>
+
+    <script>
+        // ฟังก์ชันสลับหน้า Java / Bedrock
+        function showTab(type) {
+            // ซ่อนทุกอันก่อน
+            document.getElementById('java').classList.remove('active');
+            document.getElementById('bedrock').classList.remove('active');
+            document.getElementById('btn-java').classList.remove('active');
+            document.getElementById('btn-bedrock').classList.remove('active');
+
+            // แสดงอันที่กด
+            document.getElementById(type).classList.add('active');
+            document.getElementById('btn-' + type).classList.add('active');
+        }
+
+        // ฟังก์ชันคัดลอก IP (รองรับทุกอุปกรณ์)
+        async function copyIP(id) {
+            const text = document.getElementById(id).innerText;
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(text);
+                alert("คัดลอก IP สำเร็จ: " + text);
+            } else {
+                // วิธีสำรองสำหรับบางเบราว์เซอร์
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert("คัดลอก IP สำเร็จ: " + text);
+                } catch (err) {
+                    alert("ไม่สามารถคัดลอกอัตโนมัติได้ กรุณาคัดลอกด้วยตนเอง: " + text);
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+    </script>
+</body>
+</html>
