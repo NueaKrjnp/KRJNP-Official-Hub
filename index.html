@@ -124,7 +124,7 @@
         
         <div id="java" class="section active">
             <h3 style="text-align:center;">วิธีเข้าเล่นเวอร์ชัน Java (PC)</h3>
-            <img src="image_ec453c.jpg" class="instruction-img" alt="Java Guide">
+            <img src="สกรีนช็อต 2026-05-10 205449.png" class="instruction-img" alt="Java Guide">
             
             <div class="ip-box">
                 <p style="margin-top:0;">Server IP:</p>
@@ -134,8 +134,8 @@
         </div>
 
         <div id="bedrock" class="section">
-            <h3 style="text-align:center;">วิธีเข้าเล่นเวอร์ชัน Bedrock (มือถือ/คอนโซล)</h3>
-            <img src="image_eb4a93.png" class="instruction-img" alt="Bedrock Guide">
+            <h3 style="text-align:center;">วิธีเข้าเล่นเวอร์ชัน Bedrock (มือถือ)</h3>
+            <img src="สกรีนช็อต 2026-05-10 213416.png" class="instruction-img" alt="Bedrock Guide">
             
             <div class="ip-box">
                 <p style="margin:0;">Address: <span id="bed-ip" class="ip-text">147.185.221.30</span></p>
@@ -146,39 +146,34 @@
             <div class="troubleshoot">
                 <h2>❓ ทำไมเข้าไม่ได้? (Bedrock)</h2>
                 <span class="hint">ขั้นตอนที่ 1: ให้เปิดการตั้งค่าตามภาพนี้</span>
-                <img src="image_eb4354.png" class="instruction-img">
+                <img src="สกรีนช็อต 2026-05-10 213818.png" class="instruction-img">
                 
                 <span class="hint">ขั้นตอนที่ 2: ถ้ายังเข้าไม่ได้ ให้ปิด Trusted Skins</span>
-                <img src="image_eaf09a.png" class="instruction-img">
+                <img src="สกรีนช็อต 2026-05-10 214012.png" class="instruction-img">
             </div>
         </div>
 
     </div>
 
-    <div class="footer">© 2026 KRJNP Official Hub - All Rights Reserved</div>
+    <div class="footer">© 2026 KRJNP Official Hub</div>
 
     <script>
-        // ฟังก์ชันสลับหน้า Java / Bedrock
         function showTab(type) {
-            // ซ่อนทุกอันก่อน
             document.getElementById('java').classList.remove('active');
             document.getElementById('bedrock').classList.remove('active');
             document.getElementById('btn-java').classList.remove('active');
             document.getElementById('btn-bedrock').classList.remove('active');
 
-            // แสดงอันที่กด
             document.getElementById(type).classList.add('active');
             document.getElementById('btn-' + type).classList.add('active');
         }
 
-        // ฟังก์ชันคัดลอก IP (รองรับทุกอุปกรณ์)
         async function copyIP(id) {
             const text = document.getElementById(id).innerText;
             if (navigator.clipboard && window.isSecureContext) {
                 await navigator.clipboard.writeText(text);
                 alert("คัดลอก IP สำเร็จ: " + text);
             } else {
-                // วิธีสำรองสำหรับบางเบราว์เซอร์
                 const textArea = document.createElement("textarea");
                 textArea.value = text;
                 document.body.appendChild(textArea);
@@ -188,7 +183,7 @@
                     document.execCommand('copy');
                     alert("คัดลอก IP สำเร็จ: " + text);
                 } catch (err) {
-                    alert("ไม่สามารถคัดลอกอัตโนมัติได้ กรุณาคัดลอกด้วยตนเอง: " + text);
+                    alert("คัดลอกด้วยตนเอง: " + text);
                 }
                 document.body.removeChild(textArea);
             }
