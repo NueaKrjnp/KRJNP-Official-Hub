@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>วิธีการเข้าเล่น - KRJNP WORLD</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: #0f172a;
+            color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 50px 20px 20px;
+        }
+
+        .header h1 {
+            color: #2ecc71;
+            font-size: 2.8rem;
+            margin: 0;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* ส่วนเลือกเวอร์ชัน */
+        .tab-container {
+            display: flex;
+            background: #1e293b;
+            padding: 8px;
+            border-radius: 50px;
+            margin: 30px 0;
+            border: 1px solid #334155;
+        }
+
+        .tab-btn {
+            background: transparent;
+            color: #94a3b8;
+            border: none;
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active {
+            background: #2ecc71;
+            color: #000;
+        }
+
+        /* ส่วนเนื้อหา */
+        .content-container {
+            width: 90%;
+            max-width: 700px;
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            margin-bottom: 50px;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .instruction-img {
+            width: 100%;
+            border-radius: 12px;
+            border: 2px solid #334155;
+            margin: 20px 0;
+        }
+
+        .ip-box {
+            background: #0f172a;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #2ecc71;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .ip-text {
+            font-family: monospace;
+            font-size: 1.3rem;
+            color: #2ecc71;
+        }
+
+        .copy-btn {
+            background: #2ecc71;
+            color: #000;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .copy-btn:hover { background: #27ae60; }
+
+        /* แก้ปัญหา Bedrock */
+        .troubleshoot {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+        }
+
+        .troubleshoot h2 { color: #f1c40f; text-align: center; }
+        .hint-text { color: #94a3b8; display: block; text-align: center; margin-top: 20px; }
+
+        .footer { padding-bottom: 30px; color: #64748b; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🎮 KRJNP WORLD</h1>
+        <p>วิธีการเข้าเล่นเซิร์ฟเวอร์</p>
+    </div>
+
+    <div class="tab-container">
+        <button class="tab-btn active" onclick="showTab('java')">Java Edition</button>
+        <button class="tab-btn" onclick="showTab('bedrock')">Bedrock Edition</button>
+    </div>
+
+    <div class="content-container">
+        
+        <div id="java" class="section active">
+            <h3 style="text-align:center;">วิธีเข้าสำหรับเวอร์ชัน Java</h3>
+            <img src="https://i.ibb.co/R4T8CsZz/image_ec453c.jpg" class="instruction-img">
+            
+            <div class="ip-box">
+                <p>IP SERVER (Java):</p>
+                <span class="ip-text" id="java-ip">winnings-passage.gl.joinmc.link</span><br>
+                <button class="copy-btn" onclick="copyIP('java-ip')">📋 คัดลอก IP</button>
+            </div>
+        </div>
+
+        <div id="bedrock" class="section">
+            <h3 style="text-align
